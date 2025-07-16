@@ -32,6 +32,8 @@ public class ModCreativeTabs {
                 output.accept(CASINO_CHIP_25s);
                 output.accept(CASINO_CHIP_50s);
 
+                output.accept(CASINO_TILL_BLOCK_ITEM);
+
             }).build());
 
     public static void register(IEventBus modEventBus) {

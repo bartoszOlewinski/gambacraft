@@ -1,6 +1,7 @@
 package com.bartoszolewinski.gamba.item;
 
 import com.bartoszolewinski.gamba.GambaCraft;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.Block;
@@ -10,6 +11,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import static com.bartoszolewinski.gamba.GambaCraft.MODID;
+import static com.bartoszolewinski.gamba.blocks.ModBlocks.CASINO_TILL;
 
 public class ModItems {
 
@@ -39,6 +41,12 @@ public class ModItems {
             "casino_chip_50s",
             Item::new,
             new Item.Properties().rarity(Rarity.EPIC)
+    );
+
+
+    //casino till profession block item
+    public static final DeferredItem<BlockItem> CASINO_TILL_BLOCK_ITEM = ITEMS.registerSimpleBlockItem(
+            CASINO_TILL
     );
 
 
