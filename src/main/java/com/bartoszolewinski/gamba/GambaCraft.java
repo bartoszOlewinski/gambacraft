@@ -1,6 +1,12 @@
 package com.bartoszolewinski.gamba;
 
+import com.bartoszolewinski.gamba.blocks.ModBlocks;
+import com.bartoszolewinski.gamba.item.ModCreativeTabs;
+import com.bartoszolewinski.gamba.item.ModItems;
+import com.bartoszolewinski.gamba.villagers.ModVillagers;
+import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.item.*;
 import org.slf4j.Logger;
 
@@ -36,68 +42,7 @@ public class GambaCraft {
     public static final String MODID = "gambacraft";
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
-    // Create a Deferred Register to hold Blocks which will all be registered under the "gambacraft" namespace
-    public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MODID);
-    // Create a Deferred Register to hold Items which will all be registered under the "gambacraft" namespace
-    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
-    // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "gambacraft" namespace
-    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
 
-    // Creates a new Block with the id "gambacraft:example_block", combining the namespace and path
-    public static final DeferredBlock<Block> EXAMPLE_BLOCK = BLOCKS.registerSimpleBlock("example_block", BlockBehaviour.Properties.of().mapColor(MapColor.STONE));
-    // Creates a new BlockItem with the id "gambacraft:example_block", combining the namespace and path
-    public static final DeferredItem<BlockItem> EXAMPLE_BLOCK_ITEM = ITEMS.registerSimpleBlockItem("example_block", EXAMPLE_BLOCK);
-
-
-
-
-    //casino till for profession
-    public static final DeferredBlock<Block> CASINO_TILL = BLOCKS.registerBlock(
-      "casino_till",
-      Block::new,
-      new BlockBehaviour.Properties().
-    );
-
-
-    //casino chips
-    public static final DeferredItem<Item> CASINO_CHIP_1s = ITEMS.registerItem(
-            "casino_chip_1s",
-            Item::new,
-            new Item.Properties().rarity(Rarity.COMMON)
-    );
-
-
-    public static final DeferredItem<Item> CASINO_CHIP_10s = ITEMS.registerItem(
-            "casino_chip_10s",
-            Item::new,
-            new Item.Properties().rarity(Rarity.UNCOMMON)
-    );
-    public static final DeferredItem<Item> CASINO_CHIP_25s = ITEMS.registerItem(
-            "casino_chip_25s",
-            Item::new,
-            new Item.Properties().rarity(Rarity.RARE)
-    );
-    public static final DeferredItem<Item> CASINO_CHIP_50s = ITEMS.registerItem(
-            "casino_chip_50s",
-            Item::new,
-            new Item.Properties().rarity(Rarity.EPIC)
-    );
-
-
-
-
-    // Creates a creative tab with the id "gambacraft:example_tab" for the example item, that is placed after the combat tab
-    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> GAMBACRAFT_TAB = CREATIVE_MODE_TABS.register("gambacraft_tab", () -> CreativeModeTab.builder()
-            .title(Component.translatable("creativetab.gambacraft.casino_items")) //The language key for the title of your CreativeModeTab
-            .withTabsBefore(CreativeModeTabs.COMBAT)
-            .icon(() -> CASINO_CHIP_1s.get().getDefaultInstance())
-            .displayItems((parameters, output) -> {
-                output.accept(CASINO_CHIP_1s);
-                output.accept(CASINO_CHIP_10s);
-                output.accept(CASINO_CHIP_25s);
-                output.accept(CASINO_CHIP_50s);
-                // Add the example item to the tab. For your own tabs, this method is preferred over the event
-            }).build());
 
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
@@ -105,20 +50,17 @@ public class GambaCraft {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
-        // Register the Deferred Register to the mod event bus so blocks get registered
-        BLOCKS.register(modEventBus);
-        // Register the Deferred Register to the mod event bus so items get registered
-        ITEMS.register(modEventBus);
-        // Register the Deferred Register to the mod event bus so tabs get registered
-        CREATIVE_MODE_TABS.register(modEventBus);
+
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
+        ModCreativeTabs.register(modEventBus);
+        ModVillagers.register(modEventBus);
+
 
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (GambaCraft) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
-
-        // Register the item to a creative tab
-        modEventBus.addListener(this::addCreative);
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
@@ -135,13 +77,6 @@ public class GambaCraft {
         LOGGER.info("{}{}", Config.MAGIC_NUMBER_INTRODUCTION.get(), Config.MAGIC_NUMBER.getAsInt());
 
         Config.ITEM_STRINGS.get().forEach((item) -> LOGGER.info("ITEM >> {}", item));
-    }
-
-    // Add the example block item to the building blocks tab
-    private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-            event.accept(EXAMPLE_BLOCK_ITEM);
-        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
