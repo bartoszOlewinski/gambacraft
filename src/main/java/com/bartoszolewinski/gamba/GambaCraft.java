@@ -1,5 +1,7 @@
 package com.bartoszolewinski.gamba;
 
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.*;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -8,10 +10,6 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -50,17 +48,55 @@ public class GambaCraft {
     // Creates a new BlockItem with the id "gambacraft:example_block", combining the namespace and path
     public static final DeferredItem<BlockItem> EXAMPLE_BLOCK_ITEM = ITEMS.registerSimpleBlockItem("example_block", EXAMPLE_BLOCK);
 
-    // Creates a new food item with the id "gambacraft:example_id", nutrition 1 and saturation 2
-    public static final DeferredItem<Item> EXAMPLE_ITEM = ITEMS.registerSimpleItem("example_item", new Item.Properties().food(new FoodProperties.Builder()
-            .alwaysEdible().nutrition(1).saturationModifier(2f).build()));
+
+
+
+    //casino till for profession
+    public static final DeferredBlock<Block> CASINO_TILL = BLOCKS.registerBlock(
+      "casino_till",
+      Block::new,
+      new BlockBehaviour.Properties().
+    );
+
+
+    //casino chips
+    public static final DeferredItem<Item> CASINO_CHIP_1s = ITEMS.registerItem(
+            "casino_chip_1s",
+            Item::new,
+            new Item.Properties().rarity(Rarity.COMMON)
+    );
+
+
+    public static final DeferredItem<Item> CASINO_CHIP_10s = ITEMS.registerItem(
+            "casino_chip_10s",
+            Item::new,
+            new Item.Properties().rarity(Rarity.UNCOMMON)
+    );
+    public static final DeferredItem<Item> CASINO_CHIP_25s = ITEMS.registerItem(
+            "casino_chip_25s",
+            Item::new,
+            new Item.Properties().rarity(Rarity.RARE)
+    );
+    public static final DeferredItem<Item> CASINO_CHIP_50s = ITEMS.registerItem(
+            "casino_chip_50s",
+            Item::new,
+            new Item.Properties().rarity(Rarity.EPIC)
+    );
+
+
+
 
     // Creates a creative tab with the id "gambacraft:example_tab" for the example item, that is placed after the combat tab
-    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
-            .title(Component.translatable("itemGroup.gambacraft")) //The language key for the title of your CreativeModeTab
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> GAMBACRAFT_TAB = CREATIVE_MODE_TABS.register("gambacraft_tab", () -> CreativeModeTab.builder()
+            .title(Component.translatable("creativetab.gambacraft.casino_items")) //The language key for the title of your CreativeModeTab
             .withTabsBefore(CreativeModeTabs.COMBAT)
-            .icon(() -> EXAMPLE_ITEM.get().getDefaultInstance())
+            .icon(() -> CASINO_CHIP_1s.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
-                output.accept(EXAMPLE_ITEM.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
+                output.accept(CASINO_CHIP_1s);
+                output.accept(CASINO_CHIP_10s);
+                output.accept(CASINO_CHIP_25s);
+                output.accept(CASINO_CHIP_50s);
+                // Add the example item to the tab. For your own tabs, this method is preferred over the event
             }).build());
 
     // The constructor for the mod class is the first code that is run when your mod is loaded.

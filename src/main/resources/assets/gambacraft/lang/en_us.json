@@ -3,6 +3,14 @@
   "block.gambacraft.example_block": "Example Block",
   "item.gambacraft.example_item": "Example Item",
 
+  "item.gambacraft.casino_chip_1s": "Casino Chip 1",
+  "item.gambacraft.casino_chip_10s": "Casino Chip 10",
+  "item.gambacraft.casino_chip_25s": "Casino Chip 25",
+  "item.gambacraft.casino_chip_50s": "Casino Chip 50",
+
+  "creativetab.gambacraft.casino_items": "Gambacraft B)",
+
+
   "gambacraft.configuration.title": "GambaCraft Configs",
   "gambacraft.configuration.section.gambacraft.common.toml": "GambaCraft Configs",
   "gambacraft.configuration.section.gambacraft.common.toml.title": "GambaCraft Configs",
