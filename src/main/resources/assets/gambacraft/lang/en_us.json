@@ -1,0 +1,13 @@
+{
+  "itemGroup.gambacraft": "Example Mod Tab",
+  "block.gambacraft.example_block": "Example Block",
+  "item.gambacraft.example_item": "Example Item",
+
+  "gambacraft.configuration.title": "GambaCraft Configs",
+  "gambacraft.configuration.section.gambacraft.common.toml": "GambaCraft Configs",
+  "gambacraft.configuration.section.gambacraft.common.toml.title": "GambaCraft Configs",
+  "gambacraft.configuration.items": "Item List",
+  "gambacraft.configuration.logDirtBlock": "Log Dirt Block",
+  "gambacraft.configuration.magicNumberIntroduction": "Magic Number Text",
+  "gambacraft.configuration.magicNumber": "Magic Number"
+}
