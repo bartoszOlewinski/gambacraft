@@ -3,6 +3,7 @@ package com.bartoszolewinski.gamba;
 import com.bartoszolewinski.gamba.blocks.ModBlocks;
 import com.bartoszolewinski.gamba.item.ModCreativeTabs;
 import com.bartoszolewinski.gamba.item.ModItems;
+import com.bartoszolewinski.gamba.sounds.ModSounds;
 import com.bartoszolewinski.gamba.villagers.ModVillagers;
 import org.slf4j.Logger;
 
@@ -40,6 +41,7 @@ public class GambaCraft {
         ModBlocks.register(modEventBus);
         ModCreativeTabs.register(modEventBus);
         ModVillagers.register(modEventBus);
+        ModSounds.register(modEventBus);
 
 
         // Register ourselves for server and other game events we are interested in.
