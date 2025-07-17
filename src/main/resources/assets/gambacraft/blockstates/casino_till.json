@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "gambacraft:block/casino_till_model"
+      "model": "gambacraft:block/casino_till_block"
     }
   }
 }
