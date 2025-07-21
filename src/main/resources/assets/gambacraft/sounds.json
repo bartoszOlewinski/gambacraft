@@ -1,8 +1,7 @@
 {
   "casino_till_sound": {
-    "sounds": {
-      "name": "gambacraft:casino_till_sound",
-      "type": "type"
-    }
+    "sounds": [
+        "gambacraft:casino_till_sound"
+    ]
   }
 }
