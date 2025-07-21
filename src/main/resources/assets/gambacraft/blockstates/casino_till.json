@@ -1,7 +1,19 @@
 {
   "variants": {
-    "": {
+    "facing=north": {
       "model": "gambacraft:block/casino_till_block"
+    },
+    "facing=south": {
+      "model": "gambacraft:block/casino_till_block",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "gambacraft:block/casino_till_block",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "gambacraft:block/casino_till_block",
+      "y": 270
     }
   }
 }
