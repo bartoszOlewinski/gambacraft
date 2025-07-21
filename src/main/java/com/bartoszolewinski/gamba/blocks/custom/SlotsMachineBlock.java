@@ -9,12 +9,12 @@ import net.minecraft.world.level.block.state.StateDefinition;
 
 import javax.annotation.Nullable;
 
-public class CasinoTillBlock extends HorizontalDirectionalBlock {
+public class SlotsMachineBlock extends HorizontalDirectionalBlock {
 
     public static final MapCodec<CasinoTillBlock> CODEC = simpleCodec(CasinoTillBlock::new);
 
 
-    public CasinoTillBlock(Properties properties) {
+    public SlotsMachineBlock(Properties properties) {
         super(properties);
     }
 

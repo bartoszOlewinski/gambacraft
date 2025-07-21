@@ -12,6 +12,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 import static com.bartoszolewinski.gamba.GambaCraft.MODID;
 import static com.bartoszolewinski.gamba.blocks.ModBlocks.CASINO_TILL;
+import static com.bartoszolewinski.gamba.blocks.ModBlocks.SLOTS_MACHINE;
 import static com.bartoszolewinski.gamba.item.ModItems.*;
 
 public class ModCreativeTabs {
@@ -36,6 +37,7 @@ public class ModCreativeTabs {
 
                 //block items need .get() method
                 output.accept(CASINO_TILL.get());
+                output.accept(SLOTS_MACHINE.get());
 
             }).build());
 

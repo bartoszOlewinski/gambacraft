@@ -2,6 +2,7 @@ package com.bartoszolewinski.gamba.blocks;
 
 import com.bartoszolewinski.gamba.GambaCraft;
 import com.bartoszolewinski.gamba.blocks.custom.CasinoTillBlock;
+import com.bartoszolewinski.gamba.blocks.custom.SlotsMachineBlock;
 import com.bartoszolewinski.gamba.item.ModItems;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -37,7 +38,9 @@ public class ModBlocks {
     //add slots machine block
     public static final DeferredBlock<Block> SLOTS_MACHINE = customRegisterBlock(
             "slots_machine",
-            (properties -> new Block(properties.noOcclusion()))
+            (properties -> new SlotsMachineBlock(properties
+                    .noOcclusion()
+                    .sound(SoundType.AMETHYST)))
     );
 
     //add blackjack block

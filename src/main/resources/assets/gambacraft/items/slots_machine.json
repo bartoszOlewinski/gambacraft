@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "gambacraft:block/slots_machine_block"
+  }
+}
