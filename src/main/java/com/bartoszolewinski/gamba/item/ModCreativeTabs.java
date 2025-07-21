@@ -1,6 +1,7 @@
 package com.bartoszolewinski.gamba.item;
 
 import com.bartoszolewinski.gamba.GambaCraft;
+import com.bartoszolewinski.gamba.blocks.ModBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -10,6 +11,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import static com.bartoszolewinski.gamba.GambaCraft.MODID;
+import static com.bartoszolewinski.gamba.blocks.ModBlocks.CASINO_TILL;
 import static com.bartoszolewinski.gamba.item.ModItems.*;
 
 public class ModCreativeTabs {
@@ -32,7 +34,8 @@ public class ModCreativeTabs {
                 output.accept(CASINO_CHIP_25s);
                 output.accept(CASINO_CHIP_50s);
 
-                output.accept(CASINO_TILL_BLOCK_ITEM);
+                //block items need .get() method
+                output.accept(CASINO_TILL.get());
 
             }).build());
 

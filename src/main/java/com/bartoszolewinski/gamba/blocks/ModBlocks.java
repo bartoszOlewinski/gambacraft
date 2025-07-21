@@ -2,10 +2,12 @@ package com.bartoszolewinski.gamba.blocks;
 
 import com.bartoszolewinski.gamba.GambaCraft;
 import com.bartoszolewinski.gamba.blocks.custom.CasinoTillBlock;
+import com.bartoszolewinski.gamba.item.ModItems;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.SlabBlock;
@@ -27,13 +29,17 @@ public class ModBlocks {
 
 
     //add profession block
-
-    public static final DeferredBlock<Block> CASINO_TILL = registerBlock(
+    public static final DeferredBlock<Block> CASINO_TILL = customRegisterBlock(
             "casino_till",
-            (properties) -> new CasinoTillBlock(properties.noOcclusion()));
+            (properties) -> new CasinoTillBlock(properties.noOcclusion())
+    );
 
 
     //add slots machine block
+    public static final DeferredBlock<Block> SLOTS_MACHINE = customRegisterBlock(
+            "slots_machine",
+            (properties -> new Block(properties.noOcclusion()))
+    );
 
     //add blackjack block
 
@@ -41,10 +47,15 @@ public class ModBlocks {
 
 
 
-    //utility register from github
-    private static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> function) {
+    //utility register from GitHub
+    private static <T extends Block> DeferredBlock<T> customRegisterBlock(String name, Function<BlockBehaviour.Properties, T> function) {
         DeferredBlock<T> toReturn = BLOCKS.registerBlock(name, function);
+        registerBlockItem(name, toReturn);
         return toReturn;
+    }
+
+    private static <T extends Block> void registerBlockItem(String name, DeferredBlock<T> block) {
+        ModItems.ITEMS.registerItem(name, (properties) -> new BlockItem(block.get(), properties.useBlockDescriptionPrefix()));
     }
 
 

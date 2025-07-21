@@ -45,9 +45,12 @@ public class ModItems {
 
 
     //casino till profession block item
+    /*
     public static final DeferredItem<BlockItem> CASINO_TILL_BLOCK_ITEM = ITEMS.registerSimpleBlockItem(
             CASINO_TILL
     );
+
+     */
 
 
 
