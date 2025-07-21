@@ -55,6 +55,8 @@ public class ModEvents {
                     6,
                     0.05f
             ));
+
+            //trade for buying blackjack and poker tables
         }
     }
 }

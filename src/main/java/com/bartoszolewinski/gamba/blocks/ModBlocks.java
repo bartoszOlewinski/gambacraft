@@ -3,6 +3,7 @@ package com.bartoszolewinski.gamba.blocks;
 import com.bartoszolewinski.gamba.GambaCraft;
 import com.bartoszolewinski.gamba.blocks.custom.CasinoTillBlock;
 import com.bartoszolewinski.gamba.blocks.custom.SlotsMachineBlock;
+import com.bartoszolewinski.gamba.blocks.entity.SlotsMachineBlockEntity;
 import com.bartoszolewinski.gamba.item.ModItems;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -13,12 +14,14 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.function.Function;
+import java.util.function.Supplier;
 
 public class ModBlocks {
 
