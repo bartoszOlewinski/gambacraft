@@ -31,7 +31,7 @@ public class ModVillagers {
 
     //create profession COPIED NOT FINAL
     public static final Holder<VillagerProfession> CASINO_TELLER = VILLAGER_PROFESSIONS.register("casino_teller",
-            () -> new VillagerProfession(Component.literal("casino_teller"), holder -> holder.value() == CASINO_POI.value(),
+            () -> new VillagerProfession(Component.literal("Casino Teller"), holder -> holder.value() == CASINO_POI.value(),
                     poiTypeHolder -> poiTypeHolder.value() == CASINO_POI.value(), ImmutableSet.of(), ImmutableSet.of(),
                     ModSounds.CASINO_TILL_SOUND.get()));
 
