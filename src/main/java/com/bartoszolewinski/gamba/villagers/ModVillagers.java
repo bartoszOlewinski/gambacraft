@@ -12,6 +12,8 @@ import net.minecraft.world.entity.npc.VillagerProfession;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+import static com.bartoszolewinski.gamba.blocks.ModBlocks.CASINO_TILL;
+
 
 public class ModVillagers {
 
@@ -24,7 +26,7 @@ public class ModVillagers {
 
     //create poi
     public static final Holder<PoiType> CASINO_POI = POI_TYPES.register("casino_poi",
-            () -> new PoiType(ImmutableSet.copyOf(ModBlocks.CASINO_TILL.get().getStateDefinition().getPossibleStates()), 1, 1));
+            () -> new PoiType(ImmutableSet.copyOf(CASINO_TILL.get().getStateDefinition().getPossibleStates()), 1, 1));
 
 
     //create profession COPIED NOT FINAL
@@ -32,6 +34,7 @@ public class ModVillagers {
             () -> new VillagerProfession(Component.literal("casino_teller"), holder -> holder.value() == CASINO_POI.value(),
                     poiTypeHolder -> poiTypeHolder.value() == CASINO_POI.value(), ImmutableSet.of(), ImmutableSet.of(),
                     ModSounds.CASINO_TILL_SOUND.get()));
+
 
 
     public static void register(IEventBus eventBus) {

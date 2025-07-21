@@ -1,8 +1,6 @@
 package com.bartoszolewinski.gamba.sounds;
 
 import com.bartoszolewinski.gamba.GambaCraft;
-import net.minecraft.client.resources.sounds.Sound;
-import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvent;
 import net.neoforged.bus.api.IEventBus;

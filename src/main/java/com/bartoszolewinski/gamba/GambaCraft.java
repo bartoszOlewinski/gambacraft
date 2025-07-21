@@ -40,9 +40,8 @@ public class GambaCraft {
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModCreativeTabs.register(modEventBus);
-        ModVillagers.register(modEventBus);
         ModSounds.register(modEventBus);
-
+        ModVillagers.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (GambaCraft) to respond directly to events.

@@ -18,9 +18,6 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.function.Function;
-import java.util.function.Supplier;
-
-import static net.minecraft.world.item.Items.registerBlock;
 
 public class ModBlocks {
 
@@ -31,7 +28,9 @@ public class ModBlocks {
     //add profession block
     public static final DeferredBlock<Block> CASINO_TILL = customRegisterBlock(
             "casino_till",
-            (properties) -> new CasinoTillBlock(properties.noOcclusion())
+            (properties) -> new CasinoTillBlock(properties
+                    .noOcclusion()
+                    .sound(SoundType.STONE))
     );
 
 

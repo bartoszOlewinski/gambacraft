@@ -14,6 +14,9 @@
   "creativetab.gambacraft.casino_items": "Gambling",
 
 
+  "entity.minecraft.villager.gambacraft.casino_teller": "Casino Teller",
+
+
   "gambacraft.configuration.title": "GambaCraft Configs",
   "gambacraft.configuration.section.gambacraft.common.toml": "GambaCraft Configs",
   "gambacraft.configuration.section.gambacraft.common.toml.title": "GambaCraft Configs",
